@@ -1,0 +1,250 @@
+.wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--grey-400);
+}
+.emptyIcon { font-size: 52px; margin-bottom: 16px; }
+.empty p { font-size: 15px; }
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--green-primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.15s;
+}
+.backBtn:hover { opacity: 0.65; }
+
+/* ── Risk Banner ─────────────────────────── */
+.banner {
+  padding: 22px 26px;
+  border-radius: var(--radius-lg);
+  border-left: 5px solid;
+  min-height: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: var(--shadow-sm);
+}
+.bannerRed   { background: var(--red-bg);   border-color: var(--red-border);   }
+.bannerAmber { background: var(--amber-bg); border-color: var(--amber-border); }
+.bannerGreen { background: var(--green-light); border-color: var(--green-primary); }
+
+.bannerMain {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.bannerRed   .bannerMain { color: var(--red-text); }
+.bannerAmber .bannerMain { color: var(--amber-text); }
+.bannerGreen .bannerMain { color: #14532D; }
+
+.bannerSub { font-size: 12.5px; font-weight: 400; }
+
+/* ── Cards ───────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionLabel {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  margin-bottom: 13px;
+}
+
+.bodyText {
+  font-size: 15px;
+  color: var(--grey-700);
+  line-height: 1.65;
+}
+
+/* ── Steps ───────────────────────────────── */
+.stepList { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+
+.stepItem { display: flex; align-items: flex-start; gap: 13px; }
+
+.stepNum {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  background: var(--green-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.stepText { font-size: 14px; color: var(--grey-700); line-height: 1.55; padding-top: 3px; }
+
+/* ── Food Grid ───────────────────────────── */
+.foodGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 13px; }
+
+.foodCard {
+  background: var(--surface);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.foodName    { font-size: 14.5px; font-weight: 700; color: var(--grey-900); }
+.foodKannada { font-size: 12.5px; color: var(--grey-400); }
+.foodAdvice  { font-size: 12.5px; color: var(--grey-500); margin-top: 3px; line-height: 1.4; }
+.costBadge {
+  display: inline-block;
+  margin-top: 6px;
+  background: var(--green-mint);
+  color: var(--green-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+.totalCost { text-align: right; font-size: 13.5px; font-weight: 700; color: var(--green-primary); }
+
+/* ── PHC Alert ───────────────────────────── */
+.phcCard {
+  background: var(--red-bg);
+  border: 2px solid var(--red-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+}
+.phcLabel { font-size: 13.5px; font-weight: 700; color: var(--red-text); margin-bottom: 13px; }
+.phcSms {
+  font-family: 'Courier New', monospace;
+  font-size: 12.5px;
+  color: var(--grey-700);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 13px 15px;
+  margin-bottom: 11px;
+  border: 1px solid #FECACA;
+}
+.phcConfirm { font-size: 12.5px; color: var(--green-primary); font-weight: 600; }
+
+/* ── Kannada ─────────────────────────────── */
+.kannadaCard {
+  background: var(--blue-bg);
+  border: 1.5px solid var(--blue-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+}
+.kannadaLabel {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green-primary); margin-bottom: 13px;
+}
+.kannadaText { font-size: 17.5px; line-height: 1.9; color: var(--grey-900); margin-bottom: 11px; }
+.kannadaHint { font-size: 11.5px; color: var(--grey-400); font-style: italic; }
+
+/* ── Bottom Actions ──────────────────────── */
+.bottomActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+.revisitBadge {
+  background: var(--green-light);
+  color: var(--green-primary);
+  border: 1.5px solid var(--green-border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.bottomRight { display: flex; gap: 10px; }
+
+.btnSecondary {
+  background: white;
+  color: var(--green-primary);
+  border: 1.5px solid var(--green-primary);
+  border-radius: var(--radius-md);
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.14s;
+}
+.btnSecondary:hover { background: var(--green-light); }
+
+.btnSave {
+  background: var(--green-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.14s;
+}
+.btnSave:hover { opacity: 0.85; }
+
+/* ── Toast ───────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  background: var(--green-primary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  z-index: 9999;
+  animation: slideInRight 0.25s ease;
+  box-shadow: 0 6px 24px rgba(15,123,90,0.35);
+}
+
+@media (max-width: 520px) {
+  .foodGrid { grid-template-columns: 1fr; }
+  .bottomActions { flex-direction: column; align-items: flex-start; }
+  .bannerMain { font-size: 17px; }
+  .wrapper { padding: 20px 14px 40px; }
+}
+
+.offlineNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #FFFBEB;
+  border: 1.5px solid #D97706;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #78350F;
+  line-height: 1.5;
+}

@@ -1,0 +1,71 @@
+.wrapper {
+  background: var(--white);
+  border-bottom: 1px solid var(--green-border);
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.nav {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 16px;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 18px;
+  background: none;
+  border: none;
+  color: var(--grey-400);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab:hover:not(.locked) {
+  color: var(--green-primary);
+}
+
+.tab.active {
+  color: var(--green-primary);
+  font-weight: 700;
+}
+
+.tab.locked {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--green-primary);
+  border-radius: 3px 3px 0 0;
+  animation: fadeIn 0.2s ease;
+}
+
+.icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .tab { padding: 11px 10px; gap: 4px; }
+  .label { font-size: 12px; }
+}

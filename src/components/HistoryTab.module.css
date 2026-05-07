@@ -1,0 +1,85 @@
+.wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.title { font-size: 18px; font-weight: 700; color: var(--grey-900); }
+
+.clearBtn {
+  background: none;
+  border: 1.5px solid var(--red-border);
+  color: var(--red-border);
+  border-radius: var(--radius-md);
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.14s;
+}
+.clearBtn:hover { background: var(--red-bg); }
+
+.empty {
+  text-align: center;
+  padding: 70px 20px;
+  color: var(--grey-400);
+}
+.emptyIcon { font-size: 52px; margin-bottom: 16px; }
+.empty p   { font-size: 15px; margin-bottom: 8px; }
+.emptyHint { font-size: 13px !important; color: var(--grey-300) !important; }
+
+.list { display: flex; flex-direction: column; gap: 9px; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: box-shadow 0.14s, border-color 0.14s, transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--green-primary);
+  transform: translateY(-1px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardLeft { flex: 1; }
+.patientName { font-size: 15px; font-weight: 700; color: var(--grey-900); margin-bottom: 5px; }
+.cardMeta { display: flex; flex-wrap: wrap; gap: 8px; }
+.cardMeta span { font-size: 12.5px; color: var(--grey-400); }
+
+.cardRight { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+
+.riskBadge { border-radius: 20px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; }
+.riskRed   { background: var(--red-bg);   color: var(--red-text);   border: 1px solid var(--red-border); }
+.riskAmber { background: var(--amber-bg); color: var(--amber-text); border: 1px solid var(--amber-border); }
+.riskGreen { background: var(--green-light); color: #14532D; border: 1px solid var(--green-primary); }
+
+.timestamp { font-size: 11.5px; color: var(--grey-300); }
+.preview   { font-size: 12.5px; color: var(--grey-500); line-height: 1.45; }
+
+@media (max-width: 480px) {
+  .wrapper { padding: 20px 14px 40px; }
+}
