@@ -1,0 +1,111 @@
+.wrapper {
+  background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
+  border: 1.5px solid #7DD3FC;
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo { font-size: 16px; }
+
+.title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369A1;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  flex: 1;
+}
+
+.badge {
+  background: #0369A1;
+  color: white;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.validation {
+  font-size: 12.5px;
+  color: #0C4A6E;
+  line-height: 1.5;
+  font-weight: 500;
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.basis {
+  font-size: 11.5px;
+  color: #075985;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px solid #BAE6FD;
+  margin-top: 2px;
+}
+
+.footerText {
+  font-size: 10.5px;
+  color: #0369A1;
+  font-style: italic;
+}
+
+.footerRight {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.hbBadge, .confBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border: 1px solid #BAE6FD;
+  border-radius: 8px;
+  padding: 4px 10px;
+  min-width: 70px;
+}
+
+.hbLabel, .confLabel {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7DD3FC;
+}
+
+.hbVal {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0C4A6E;
+}
+
+.confVal {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0369A1;
+}
+
+@media (max-width: 480px) {
+  .footerRight { display: none; }
+}

@@ -248,3 +248,76 @@
   color: #78350F;
   line-height: 1.5;
 }
+
+.confidenceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.confidenceBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.confidenceFill {
+  height: 100%;
+  background: rgba(255,255,255,0.85);
+  border-radius: 3px;
+  transition: width 0.8s ease;
+}
+
+.confidenceLabel {
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+
+.foodMeta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.ironBadge {
+  display: inline-block;
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid #FDE68A;
+}
+
+.foodSource {
+  font-size: 10px;
+  color: var(--grey-400);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.foodCitation {
+  text-align: right;
+  font-size: 10.5px;
+  color: var(--grey-400);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.bottomCitation {
+  text-align: center;
+  font-size: 11px;
+  color: #0369A1;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: var(--radius-md);
+  padding: 9px 16px;
+  font-style: italic;
+}

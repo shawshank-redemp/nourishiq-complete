@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ICMRCitation from './ICMRCitation.jsx';
 import styles from './ResultOutput.module.css';
 
 export default function ResultOutput({ assessment, onNewAssessment, onViewBreakdown }) {
@@ -14,7 +15,11 @@ export default function ResultOutput({ assessment, onNewAssessment, onViewBreakd
   }
 
   const { formData, result } = assessment;
-  const { risk_level, medical_interpretation, asha_next_steps, nutrition_plan, phc_sms, kannada_message } = result;
+  const {
+    risk_level, medical_interpretation, asha_next_steps,
+    nutrition_plan, phc_sms, kannada_message,
+    icmr_basis, icmr_validation, confidence_score, estimated_hb_range,
+  } = result;
 
   const riskConfig = {
     RED:   { bg: styles.bannerRed,   emoji: '🔴', text: 'HIGH RISK — Immediate Action Required',  subColor: '#7F1D1D' },
@@ -36,13 +41,40 @@ export default function ResultOutput({ assessment, onNewAssessment, onViewBreakd
 
       <button className={styles.backBtn} onClick={onNewAssessment}>← New Assessment</button>
 
+      {/* Offline triage notice */}
+      {result.offline_triage && (
+        <div className={styles.offlineNotice}>
+          <span>📵</span>
+          <div>
+            <strong>Offline Triage Result</strong> — Generated using ICMR rule-based local logic while offline.
+            Full AI analysis will run automatically when internet is restored.
+          </div>
+        </div>
+      )}
+
       {/* Risk Banner */}
       <div className={`${styles.banner} ${rc.bg}`}>
         <div className={styles.bannerMain}>{rc.emoji} {rc.text}</div>
         <div className={styles.bannerSub} style={{ color: rc.subColor }}>
           Patient: {formData.patientName || '—'} · Age {formData.age || '—'} · Week {formData.gestationalWeek || '—'} · Assessed by {formData.ashaWorkerName || '—'}
         </div>
+        {confidence_score && (
+          <div className={styles.confidenceRow}>
+            <div className={styles.confidenceBar}>
+              <div className={styles.confidenceFill} style={{ width: `${confidence_score}%` }} />
+            </div>
+            <span className={styles.confidenceLabel}>AI Confidence: {confidence_score}%</span>
+          </div>
+        )}
       </div>
+
+      {/* ICMR Citation — top level */}
+      <ICMRCitation
+        icmrBasis={icmr_basis}
+        icmrValidation={icmr_validation}
+        confidenceScore={confidence_score}
+        estimatedHb={estimated_hb_range}
+      />
 
       {/* Medical Interpretation */}
       <div className={styles.card}>
@@ -72,11 +104,20 @@ export default function ResultOutput({ assessment, onNewAssessment, onViewBreakd
               <div className={styles.foodName}>{food.food_name}</div>
               <div className={styles.foodKannada}>{food.food_kannada}</div>
               <div className={styles.foodAdvice}>{food.daily_advice}</div>
-              <div className={styles.costBadge}>₹{food.cost_per_day}/day</div>
+              <div className={styles.foodMeta}>
+                <div className={styles.costBadge}>₹{food.cost_per_day}/day</div>
+                {food.iron_mg && <div className={styles.ironBadge}>Fe {food.iron_mg}mg</div>}
+              </div>
+              {food.icmr_source && (
+                <div className={styles.foodSource}>{food.icmr_source}</div>
+              )}
             </div>
           ))}
         </div>
         <div className={styles.totalCost}>Estimated total: ₹{totalCost} per day</div>
+        <div className={styles.foodCitation}>
+          Based on ICMR-NIN 2020 Recommended Dietary Allowances for Pregnant Women
+        </div>
       </div>
 
       {/* PHC Alert — RED only */}
@@ -96,6 +137,11 @@ export default function ResultOutput({ assessment, onNewAssessment, onViewBreakd
           <div className={styles.kannadaHint}>(Read this directly to the patient and family)</div>
         </div>
       )}
+
+      {/* Bottom ICMR citation */}
+      <div className={styles.bottomCitation}>
+        🏛️ Based on ICMR-NIN 2020 Recommended Dietary Allowances for Pregnant Women
+      </div>
 
       {/* Bottom Actions */}
       <div className={styles.bottomActions}>
