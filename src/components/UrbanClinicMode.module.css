@@ -1,77 +1,55 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   NourishIQ — Multilingual Voice-First Interview — Styles
-───────────────────────────────────────────────────────────────────────────── */
+/* NourishIQ — Multilingual Voice Clinical Intake — Full stylesheet */
 
-.wrapper {
-  max-width: 680px;
+.wrap {
+  max-width: 640px;
   margin: 0 auto;
-  padding: 32px 20px 56px;
-  animation: fadeUp 0.35s ease both;
+  padding: 28px 18px 60px;
+  animation: fadeUp 0.3s ease both;
 }
 
-/* ── Back link ────────────────────────────────────────────────── */
-.backLink {
+.back {
   background: none;
   border: none;
   color: var(--green-primary);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
-  padding: 0 0 18px;
+  padding: 0 0 20px;
   cursor: pointer;
   display: block;
   transition: opacity 0.14s;
 }
-.backLink:hover { opacity: 0.65; }
+.back:hover { opacity: 0.6; }
 
-/* ══════════════════════════════════════════════════════════════
-   STEP 1 — Language selection
-══════════════════════════════════════════════════════════════ */
-.langScreen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-}
+/* ══ STEP 1 — Language ══════════════════════════════════════ */
+.langScreen { display: flex; flex-direction: column; align-items: center; gap: 32px; }
 
-.langHeader {
-  text-align: center;
-}
-
-.langIcon { font-size: 52px; line-height: 1; margin-bottom: 12px; }
-.langTitle {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--grey-900);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-.langDesc {
-  font-size: 14px;
-  color: var(--grey-400);
-  line-height: 1.5;
-  max-width: 420px;
-}
+.langHero { text-align: center; }
+.langHeroIcon  { font-size: 56px; display: block; margin-bottom: 14px; }
+.langHeroTitle { font-size: 26px; font-weight: 800; color: var(--grey-900); margin-bottom: 8px; letter-spacing: -0.02em; }
+.langHeroDesc  { font-size: 14px; color: var(--grey-400); line-height: 1.5; }
 
 .langGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
 }
+.langGrid .langBtn:last-child { grid-column: 1 / -1; }
 
 .langBtn {
+  min-height: 90px;
   background: var(--white);
   border: 2px solid var(--green-border);
-  border-radius: 16px;
-  padding: 22px 18px;
+  border-radius: 18px;
+  padding: 20px 14px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  transition: all 0.16s;
+  gap: 7px;
   box-shadow: var(--shadow-sm);
+  transition: all 0.16s;
 }
 .langBtn:hover {
   border-color: var(--green-primary);
@@ -80,202 +58,174 @@
   box-shadow: var(--shadow-md);
 }
 
-.langNative {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--grey-900);
-  line-height: 1.2;
-}
-.langEnglish {
-  font-size: 12px;
-  color: var(--grey-400);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
+.langNative { font-size: 28px; font-weight: 800; color: var(--grey-900); line-height: 1.2; }
+.langEn     { font-size: 11.5px; color: var(--grey-400); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; }
 
-/* English button spans full width */
-.langGrid .langBtn:last-child {
-  grid-column: 1 / -1;
-}
+/* ══ STEP 2 — Voice ════════════════════════════════════════ */
+.voiceScreen { display: flex; flex-direction: column; align-items: center; gap: 22px; }
 
-.langNote {
-  font-size: 12px;
-  color: var(--grey-400);
-  text-align: center;
-  font-style: italic;
-  max-width: 400px;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   STEP 2 — Voice Interview
-══════════════════════════════════════════════════════════════ */
-.voiceScreen {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.voiceHeader {
-  text-align: center;
-}
-
-.langPill {
-  display: inline-block;
+.langTag {
   background: var(--green-light);
   color: var(--green-primary);
   border: 1px solid var(--green-border);
   border-radius: 20px;
-  padding: 4px 16px;
+  padding: 5px 16px;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 14px;
 }
 
-.voiceInstruction {
-  font-size: 18px;
+.voiceInstr {
+  font-size: 19px;
+  font-weight: 600;
   color: var(--grey-900);
-  line-height: 1.6;
-  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 400px;
 }
 
-/* ── Mic button + pulse rings ─────────────────────────────── */
-.micWrapper {
+/* Mic + waves */
+.micOuter {
   position: relative;
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  flex-shrink: 0;
 }
 
-.pulse {
+.wave {
   position: absolute;
   border-radius: 50%;
-  border: 2px solid var(--green-primary);
+  border: 2.5px solid var(--green-primary);
   opacity: 0;
-  animation: pulsRing 2s ease-out infinite;
+  animation: waveOut 2.2s ease-out infinite;
 }
-.pulse1 { width: 130px; height: 130px; animation-delay: 0s;    }
-.pulse2 { width: 165px; height: 165px; animation-delay: 0.5s;  }
-.pulse3 { width: 200px; height: 200px; animation-delay: 1.0s;  }
+.w1 { width: 130px; height: 130px; animation-delay: 0s;   }
+.w2 { width: 165px; height: 165px; animation-delay: 0.55s; }
+.w3 { width: 200px; height: 200px; animation-delay: 1.1s;  }
 
 .micBtn {
   position: relative;
   z-index: 2;
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, var(--green-primary), #1A9E72);
+  background: linear-gradient(135deg, var(--green-primary) 0%, #1A9E72 100%);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
-  box-shadow: 0 8px 28px rgba(15, 123, 90, 0.4);
-  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 8px 30px rgba(15,123,90,0.42);
+  transition: transform 0.14s, box-shadow 0.14s;
 }
-.micBtn:hover { transform: scale(1.04); }
-.micBtn:active { transform: scale(0.97); }
-.micBtn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+.micBtn:hover:not(:disabled) { transform: scale(1.05); }
+.micBtn:active:not(:disabled) { transform: scale(0.97); }
+.micBtn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-.micBtnActive {
+.micActive {
   background: linear-gradient(135deg, #C0392B, #E24B4A);
-  box-shadow: 0 8px 28px rgba(192, 57, 43, 0.4);
-  animation: micPulse 1s ease-in-out infinite alternate;
+  box-shadow: 0 8px 30px rgba(192,57,43,0.45);
+  animation: micPop 1.2s ease-in-out infinite alternate;
 }
 
-.micIcon  { font-size: 30px; line-height: 1; }
-.micLabel { font-size: 11px; font-weight: 700; text-align: center; letter-spacing: 0.02em; }
+.micEmoji { font-size: 32px; line-height: 1; }
+.micLabel { font-size: 11px; font-weight: 700; letter-spacing: 0.02em; text-align: center; }
 
-/* ── Live transcript ──────────────────────────────────────── */
+.listeningText {
+  font-size: 15px;
+  color: var(--green-primary);
+  font-weight: 600;
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+/* Transcript */
 .transcriptBox {
+  width: 100%;
   background: var(--white);
   border: 1.5px solid var(--green-border);
   border-radius: var(--radius-lg);
   padding: 16px 18px;
-  min-height: 80px;
   box-shadow: var(--shadow-sm);
 }
 .transcriptLabel {
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   color: var(--green-primary);
   margin-bottom: 8px;
 }
-.transcriptText {
-  font-size: 15px;
-  color: var(--grey-900);
-  line-height: 1.65;
-}
-.interim {
-  color: var(--grey-400);
-  font-style: italic;
-}
+.transcriptText { font-size: 15px; color: var(--grey-900); line-height: 1.65; }
+.interim { color: var(--grey-400); font-style: italic; }
 
-/* ── Fallback textarea ────────────────────────────────────── */
-.fallbackBox {
+.fallback {
+  width: 100%;
   background: var(--amber-bg);
   border: 1px solid var(--amber-border);
   border-radius: var(--radius-md);
-  padding: 16px 18px;
+  padding: 14px 16px;
   font-size: 13.5px;
   color: var(--amber-text);
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.fallbackTextarea {
+.fallbackTA {
   font-family: var(--font);
   border: 1.5px solid var(--grey-200);
   border-radius: var(--radius-md);
-  padding: 10px 13px;
+  padding: 10px 12px;
   font-size: 14px;
   resize: vertical;
   outline: none;
   color: var(--grey-900);
+  width: 100%;
 }
-.fallbackTextarea:focus { border-color: var(--green-primary); }
+.fallbackTA:focus { border-color: var(--green-primary); }
 
-.errorBox {
+.errBox {
+  width: 100%;
   background: var(--red-bg);
   border: 1px solid var(--red-border);
   border-radius: var(--radius-md);
-  padding: 11px 16px;
+  padding: 11px 15px;
   font-size: 13px;
   color: var(--red-text);
 }
 
-.analyseBtn {
+/* Primary button */
+.primaryBtn {
+  min-height: 52px;
+  width: 100%;
   background: linear-gradient(135deg, var(--green-primary), #1A9E72);
   color: white;
   border: none;
   border-radius: var(--radius-md);
   padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 15.5px;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(15, 123, 90, 0.35);
-  transition: opacity 0.14s;
+  box-shadow: 0 4px 16px rgba(15,123,90,0.35);
+  transition: opacity 0.14s, transform 0.1s;
+  letter-spacing: 0.01em;
 }
-.analyseBtn:hover { opacity: 0.88; }
+.primaryBtn:hover { opacity: 0.88; }
+.primaryBtn:active { transform: scale(0.99); }
 
-/* ══════════════════════════════════════════════════════════════
-   STEP 3 — Loading
-══════════════════════════════════════════════════════════════ */
-.loadingScreen {
+/* ══ STEP 3 — Loading ══════════════════════════════════════ */
+.loadScreen {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  padding: 60px 20px;
+  padding: 72px 20px;
 }
-
-.loadingOrb {
+.loadOrb {
   position: relative;
   width: 100px;
   height: 100px;
@@ -283,231 +233,248 @@
   align-items: center;
   justify-content: center;
 }
-
-.loadingRing {
+.loadRing {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 3px solid transparent;
+  border: 3.5px solid transparent;
   border-top-color: var(--green-primary);
   border-right-color: var(--green-primary);
-  animation: spin 1s linear infinite;
+  animation: spin 0.9s linear infinite;
 }
-
-.loadingIcon { font-size: 40px; }
-.loadingText { font-size: 18px; font-weight: 700; color: var(--grey-900); text-align: center; }
-.loadingSubText { font-size: 13px; color: var(--grey-400); text-align: center; }
-
-/* ══════════════════════════════════════════════════════════════
-   STEP 4 — Report Review
-══════════════════════════════════════════════════════════════ */
-.reportScreen {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.reportHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.reportTitle {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--grey-900);
-}
-
-.reportLangPill {
+.loadIcon  { font-size: 42px; }
+.loadText  { font-size: 18px; font-weight: 700; color: var(--grey-900); text-align: center; }
+.loadDots  { display: flex; gap: 8px; }
+.loadDots span {
+  width: 9px; height: 9px;
   background: var(--green-primary);
-  color: white;
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 13px;
-  font-weight: 700;
+  border-radius: 50%;
+  animation: dotBounce 1.2s ease-in-out infinite;
 }
+.loadDots span:nth-child(2) { animation-delay: 0.2s; }
+.loadDots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ══ STEP 4 — Report ══════════════════════════════════════ */
+.reportScreen  { display: flex; flex-direction: column; gap: 18px; }
+.reportTitleRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.reportTitle   { font-size: 21px; font-weight: 800; color: var(--grey-900); }
 
 .nativeSummary {
-  background: linear-gradient(135deg, var(--blue-bg), #E0EEFF);
-  border: 1.5px solid var(--blue-border);
+  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  border: 1.5px solid #93C5FD;
   border-radius: var(--radius-lg);
-  padding: 16px 18px;
+  padding: 18px;
 }
-.nativeSummaryLabel {
-  font-size: 10.5px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #0369A1;
-  margin-bottom: 8px;
-}
-.nativeSummaryText {
-  font-size: 17px;
-  color: var(--grey-900);
-  line-height: 1.7;
-  font-weight: 500;
-}
+.nativeLbl  { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #0369A1; margin-bottom: 9px; }
+.nativeText { font-size: 18px; color: var(--grey-900); line-height: 1.75; font-weight: 500; }
 
-.flagsRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.flagChip {
-  background: #FEF2F2;
-  color: var(--red-text);
-  border: 1px solid var(--red-border);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 12.5px;
-  font-weight: 600;
-}
+.editHint { font-size: 12.5px; color: var(--grey-400); font-style: italic; }
 
-.reportGrid {
+.fieldGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 11px;
   background: var(--white);
   border: 1px solid var(--green-border);
   border-radius: var(--radius-lg);
   padding: 18px;
   box-shadow: var(--shadow-sm);
 }
-
-.reportField {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-/* Chief complaint and symptoms span full width */
-.reportField:nth-child(4),
-.reportField:nth-child(5) {
-  grid-column: 1 / -1;
-}
-
-.reportLabel {
-  font-size: 10.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--green-text-muted);
-}
-
-.reportInput {
+.fieldRow       { display: flex; flex-direction: column; gap: 5px; }
+.fullWidth      { grid-column: 1 / -1; }
+.fieldLbl       { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--green-text-muted); }
+.fieldInput {
+  min-height: 40px;
   border: 1.5px solid var(--grey-200);
   border-radius: var(--radius-md);
-  padding: 9px 12px;
+  padding: 9px 11px;
   font-size: 13.5px;
   color: var(--grey-900);
-  background: var(--white);
-  outline: none;
   font-family: var(--font);
-  transition: border-color 0.14s;
-  width: 100%;
+  outline: none;
+  transition: border-color 0.13s;
 }
-.reportInput:focus {
-  border-color: var(--green-primary);
-  box-shadow: 0 0 0 3px rgba(15, 123, 90, 0.08);
+.fieldInput:focus { border-color: var(--green-primary); box-shadow: 0 0 0 3px rgba(15,123,90,0.08); }
+
+/* ══ STEP 5 — Doctor ══════════════════════════════════════ */
+.doctorScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 }
 
-.rawTranscript {
-  border: 1px solid var(--grey-200);
-  border-radius: var(--radius-md);
+/* Waiting card */
+.waitingCard {
+  width: 100%;
+  background: var(--white);
+  border: 2px solid #93C5FD;
+  border-radius: 20px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.waitingSpinner {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.waitRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #3B82F6;
+  border-right-color: #3B82F6;
+  animation: spin 1s linear infinite;
+}
+.waitIcon  { font-size: 38px; }
+.waitText  { font-size: 17px; font-weight: 700; color: #1E40AF; text-align: center; }
+
+.waitCountdown {
+  width: 100%;
+  height: 7px;
+  background: #DBEAFE;
+  border-radius: 4px;
   overflow: hidden;
 }
-.rawTranscriptToggle {
-  padding: 10px 14px;
-  font-size: 12.5px;
-  color: var(--grey-500);
-  cursor: pointer;
-  background: var(--surface);
-  user-select: none;
+.countdownBar {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #1D4ED8);
+  border-radius: 4px;
+  transition: width 1s linear;
 }
-.rawTranscriptText {
-  padding: 12px 14px;
-  font-size: 13px;
-  color: var(--grey-700);
-  line-height: 1.6;
-  background: var(--white);
-  font-style: italic;
+.waitSecs { font-size: 28px; font-weight: 800; color: #1E40AF; }
+
+/* ECG line */
+.ecgLine {
+  width: 100%;
+  height: 42px;
+  overflow: hidden;
+  position: relative;
+}
+.ecgAnim {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40'%3E%3Cpolyline points='0,20 30,20 50,20 60,5 70,35 80,20 110,20 130,20 140,8 150,32 160,20 200,20 220,20 230,6 240,34 250,20 280,20 300,20 310,7 320,33 330,20 360,20 400,20' fill='none' stroke='%233B82F6' stroke-width='2'/%3E%3C/svg%3E") repeat-x center;
+  background-size: 400px 40px;
+  animation: ecgScroll 2s linear infinite;
 }
 
-.confirmBtn {
-  background: linear-gradient(135deg, var(--green-primary), #1A9E72);
+/* Doctor result card */
+.doctorCard {
+  width: 100%;
+  border-radius: 20px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeUp 0.4s ease both;
+}
+.doctorApproved { background: var(--green-light); border: 2.5px solid var(--green-primary); }
+.doctorVisit    { background: var(--red-bg);       border: 2.5px solid var(--red-border); }
+
+.doctorIconWrap { width: 80px; height: 80px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
+.doctorIcon { font-size: 40px; }
+
+.doctorStatus { font-size: 22px; font-weight: 800; text-align: center; color: var(--grey-900); }
+.doctorApproved .doctorStatus { color: var(--green-primary); }
+.doctorVisit    .doctorStatus { color: var(--red-text); }
+
+.doctorMsgBox { width: 100%; background: white; border-radius: var(--radius-md); padding: 16px 18px; }
+.doctorMsgLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.doctorApproved .doctorMsgLabel { color: var(--green-primary); }
+.doctorVisit    .doctorMsgLabel { color: var(--red-text); }
+
+.doctorMsg { font-size: 16px; color: var(--grey-900); line-height: 1.65; font-weight: 500; }
+
+.proceedBtn {
+  min-height: 56px;
+  width: 100%;
+  background: var(--green-primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
-  padding: 15px 24px;
+  padding: 14px 20px;
   font-size: 15px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 5px 18px rgba(15, 123, 90, 0.38);
-  transition: opacity 0.14s, transform 0.1s;
-  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(15,123,90,0.32);
+  transition: opacity 0.14s;
 }
-.confirmBtn:hover { opacity: 0.88; }
-.confirmBtn:active { transform: scale(0.99); }
+.proceedBtn:hover { opacity: 0.88; }
 
-/* ══════════════════════════════════════════════════════════════
-   STEP 5 — Done
-══════════════════════════════════════════════════════════════ */
+/* ══ STEP 6 — Done ════════════════════════════════════════ */
 .doneScreen {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  padding: 60px 20px;
+  padding: 72px 20px;
   text-align: center;
 }
-
-.doneIcon  { font-size: 60px; }
-.doneTitle { font-size: 22px; font-weight: 800; color: var(--grey-900); }
-.doneDesc  { font-size: 15px; color: var(--grey-500); line-height: 1.6; max-width: 400px; }
-
-.doneBtn {
-  background: var(--white);
+.doneCheck { font-size: 68px; }
+.doneTitle { font-size: 24px; font-weight: 800; color: var(--grey-900); }
+.doneDesc  { font-size: 15px; color: var(--grey-500); line-height: 1.6; max-width: 380px; }
+.outlineBtn {
+  min-height: 50px;
+  background: white;
   color: var(--green-primary);
   border: 2px solid var(--green-primary);
   border-radius: var(--radius-md);
   padding: 12px 28px;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.14s;
+  transition: background 0.14s;
   margin-top: 8px;
 }
-.doneBtn:hover { background: var(--green-light); }
+.outlineBtn:hover { background: var(--green-light); }
 
-/* ── Animations ──────────────────────────────────────────── */
+/* ══ Animations ══════════════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes pulsRing {
-  0%   { transform: scale(0.85); opacity: 0.6; }
-  100% { transform: scale(1.3);  opacity: 0; }
+@keyframes waveOut {
+  0%   { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+@keyframes micPop {
+  from { box-shadow: 0 8px 28px rgba(192,57,43,0.35); }
+  to   { box-shadow: 0 10px 40px rgba(192,57,43,0.65); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes dotBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes ecgScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
 }
 
-@keyframes micPulse {
-  from { box-shadow: 0 8px 28px rgba(192, 57, 43, 0.35); }
-  to   { box-shadow: 0 8px 40px rgba(192, 57, 43, 0.65); }
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 520px) {
+/* ══ Responsive ══════════════════════════════════════════ */
+@media (max-width: 480px) {
   .langGrid { grid-template-columns: 1fr; }
   .langGrid .langBtn:last-child { grid-column: auto; }
-  .reportGrid { grid-template-columns: 1fr; }
-  .reportField:nth-child(4),
-  .reportField:nth-child(5) { grid-column: auto; }
-  .wrapper { padding: 20px 14px 40px; }
-  .voiceInstruction { font-size: 16px; }
+  .fieldGrid { grid-template-columns: 1fr; }
+  .fullWidth { grid-column: auto; }
+  .wrap { padding: 18px 12px 48px; }
+  .voiceInstr { font-size: 17px; }
 }
