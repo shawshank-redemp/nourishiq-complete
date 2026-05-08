@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { assessPatient } from '../utils/claudeApi.js';
 import { saveAssessment } from '../utils/storage.js';
 import { addToQueue, triageOffline } from '../utils/offlineQueue.js';
@@ -23,11 +23,23 @@ const FOOD_ACCESS_OPTIONS = [
 
 const emptyForm = { patientName:'', ashaWorkerName:'', age:'', gestationalWeek:'', symptoms:'', foodIntake:'', foodAccess:'' };
 
-export default function AssessmentForm({ onAssessmentComplete, isOnline }) {
+export default function AssessmentForm({ onAssessmentComplete, isOnline, prefillData, onPrefillConsumed }) {
   const [form, setForm]               = useState(emptyForm);
   const [loading, setLoading]         = useState(false);
   const [error, setError]             = useState('');
   const [activeChips, setActiveChips] = useState([]);
+
+  // Auto-fill from voice interview
+  useEffect(() => {
+    if (prefillData) {
+      setForm(prev => ({ ...prev, ...prefillData }));
+      if (prefillData.symptoms) {
+        const chips = prefillData.symptoms.split(",").map(s => s.trim()).filter(s => ["Pale eyelids","Extreme fatigue","Swollen feet","Dizziness","Reduced fetal movement","Headache","Nausea"].includes(s));
+        setActiveChips(chips);
+      }
+      if (onPrefillConsumed) onPrefillConsumed();
+    }
+  }, [prefillData]);
   const [clinicalData, setClinicalData] = useState(null);
 
   function handleChange(e) { setForm(prev => ({ ...prev, [e.target.name]: e.target.value })); }

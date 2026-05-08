@@ -13,6 +13,7 @@ import { saveAssessment } from './utils/storage.js';
 import styles from './App.module.css';
 
 export default function App() {
+  const [prefillData, setPrefillData] = useState(null);
   const [currentTab, setCurrentTab]           = useState('Assessment');
   const [currentAssessment, setCurrentAssessment] = useState(null);
   const [history, setHistory]                 = useState([]);
@@ -100,11 +101,11 @@ export default function App() {
       <OfflineBanner isOnline={isOnline} syncCount={syncCount} isSyncing={isSyncing} />
 
       <main className={styles.main}>
-        {currentTab === 'Assessment' && <AssessmentForm onAssessmentComplete={handleAssessmentComplete} isOnline={isOnline} />}
+        {currentTab === 'Assessment' && <AssessmentForm prefillData={prefillData} onPrefillConsumed={() => setPrefillData(null)} onAssessmentComplete={handleAssessmentComplete} isOnline={isOnline} />}
         {currentTab === 'Results'    && <ResultOutput assessment={currentAssessment} onNewAssessment={() => setCurrentTab('Assessment')} onViewBreakdown={() => setCurrentTab('Breakdown')} />}
         {currentTab === 'Breakdown'  && <StepByStepBreakdown assessment={currentAssessment} onBack={() => setCurrentTab('Results')} />}
         {currentTab === 'History'    && <HistoryTab onLoadAssessment={handleLoadFromHistory} />}
-        {currentTab === 'Clinic'     && <UrbanClinicMode />}
+        {currentTab === 'Clinic' && <UrbanClinicMode onFillAssessment={(data) => { setPrefillData(data); setCurrentTab('Assessment'); }} />}
       </main>
 
       <footer className={styles.footer}>
